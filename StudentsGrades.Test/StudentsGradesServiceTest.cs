@@ -30,7 +30,7 @@ namespace StudentsGrades.Test
             //Act
             var result = serviceUnderTests.Calculate(list);
 
-            //Arrange 
+            //Assert 
             Assert.AreEqual(4.4M, result);
 
         }

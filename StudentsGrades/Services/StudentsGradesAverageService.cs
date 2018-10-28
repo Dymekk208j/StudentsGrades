@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using StudentsGrades.Models;
 
 namespace StudentsGrades.Services
 {
-    public  class StudentGradesService
+    public  class StudentsGradesAverageService
     {
         public decimal Calculate(IEnumerable<Grade> grades)
         {
             var gradesSum = grades.Sum(a => a.Value * a.Weight);
 
-            return gradesSum / grades.Sum(g => g.Weight);
+            return Math.Round(gradesSum / grades.Sum(g => g.Weight), 4);
         }
     }
 }
