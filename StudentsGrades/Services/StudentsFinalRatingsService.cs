@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using StudentsGrades.Consts;
 using StudentsGrades.Models;
 
@@ -8,31 +6,32 @@ namespace StudentsGrades.Services
 {
     public class StudentsFinalRatingsService
     {
-        private StudentsGradesAverageService _studentsGradesAverageService;
-        public StudentsFinalRatingsService()
+        private IStudentsGradesAverageService _studentsGradesAverageService;
+        public StudentsFinalRatingsService(IStudentsGradesAverageService studentsGradesAverageService)
         {
-            _studentsGradesAverageService = new StudentsGradesAverageService();
+            _studentsGradesAverageService = studentsGradesAverageService;
         }
+
         public int GetFinalRating(List<Grade> grades)
         {
             var average = _studentsGradesAverageService.Calculate(grades);
 
-            if (average >= RaintingSteps.Rating6)
+            if (average >= RatingsSteps.Rating6)
             {
                 return 6;
-            }else if (average >= RaintingSteps.Rating5)
+            }else if (average >= RatingsSteps.Rating5)
             {
                 return 5;
             }
-            else if (average >= RaintingSteps.Rating4)
+            else if (average >= RatingsSteps.Rating4)
             {
                 return 4;
             }
-            else if (average >= RaintingSteps.Rating3)
+            else if (average >= RatingsSteps.Rating3)
             {
                 return 3;
             }
-            else if (average >= RaintingSteps.Rating2)
+            else if (average >= RatingsSteps.Rating2)
             {
                 return 2;
             }

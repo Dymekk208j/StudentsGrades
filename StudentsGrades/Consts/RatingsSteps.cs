@@ -1,6 +1,6 @@
 ﻿namespace StudentsGrades.Consts
 {
-    public class RaintingSteps
+    public class RatingsSteps
     {
         public const decimal Rating6 = 5.5M;
         public const decimal Rating5 = 4.75M;
